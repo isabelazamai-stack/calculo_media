@@ -17,6 +17,15 @@ def main(pagina:ft.Page):
                                         filled=True,
                                         bgcolor="#ffacac",
                                         border_color="#ffffff"))
+        
+    def calcular_media():
+        soma_notas = 0
+        contador_notas = 0
+
+        for campo in lista_notas:
+            nota = float(campo.value)
+            soma_notas = soma_notas + nota
+            contador_notas += 1
     
     botao = ft.FloatingActionButton(icon = ft.Icon(icon=ft.CupertinoIcons.ADD_CIRCLED,
                                                    color="#A73763"),
@@ -29,7 +38,7 @@ def main(pagina:ft.Page):
     coluna_notas = ft.Column(controls=lista_notas,
                              expand=True,
                              wrap=True,
-                             scroll=ft.ScrollMode.ADAPTIVE,
+                             scroll=ft.ScrollMode.AUTO,
                              horizontal_alignment="center")
 
     botao_resultado = ft.FilledTonalButton(content="Calcular Média",
