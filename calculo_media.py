@@ -16,7 +16,9 @@ def main(pagina:ft.Page):
                                   hover_color="#ff9595"
                                   )
 
-    botao_resultado = ft.FilledTonalButton(content="Calcular Média")
+    botao_resultado = ft.FilledTonalButton(content="Calcular Média",
+                                           bgcolor="#f8d1d1",
+                                           )
 
     campo_resultado = ft.TextField(value = 0,
                                    label="Resultado",
@@ -25,12 +27,12 @@ def main(pagina:ft.Page):
 
     
 
-
+    linha_resultado = ft.Row(controls=[botao_resultado,
+                                       campo_resultado])
 
     pagina.controls = [titulo,
                        botao,
-                       botao_resultado,
-                       campo_resultado
+                       linha_resultado,
                        ]
 
     pagina.update()
