@@ -26,6 +26,8 @@ def main(pagina:ft.Page):
             nota = float(campo.value)
             soma_notas = soma_notas + nota
             contador_notas += 1
+
+            campo_resultado.value = soma_notas / contador_notas
     
     botao = ft.FloatingActionButton(icon = ft.Icon(icon=ft.CupertinoIcons.ADD_CIRCLED,
                                                    color="#A73763"),
@@ -42,20 +44,21 @@ def main(pagina:ft.Page):
                              horizontal_alignment="center")
 
     botao_resultado = ft.FilledTonalButton(content="Calcular Média",
-                                           bgcolor="#f8d1d1"
+                                           bgcolor="#f8d1d1",
+                                           on_click=calcular_media
                                            )
 
-    campo_resultado = ft.TextField(value = 0,
+    campo_resultado = ft.TextField(
                                    label="Resultado",
                                    read_only=True,
                                    text_align="center",
-                                   bgcolor="#f8d1d1")
-
-    
+                                   bgcolor="#f8d1d1",
+                                   value= 0)
 
     linha_resultado = ft.Row(controls=[botao_resultado,
                                        campo_resultado],
-                                       alignment="center")
+                                       alignment="center"
+                                       )
 
     pagina.controls = [titulo,
                        botao,
