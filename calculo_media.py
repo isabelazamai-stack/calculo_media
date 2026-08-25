@@ -15,7 +15,7 @@ def main(pagina:ft.Page):
     def adicionar_nota():
         lista_notas.append(ft.TextField(label="NOTA",
                                         filled=True,
-                                        bgcolor="#ffacac",
+                                        bgcolor="#f7d5d5",
                                         border_color="#ffffff"))
         
     def calcular_media():
@@ -33,7 +33,7 @@ def main(pagina:ft.Page):
                                                    color="#A73763"),
                                   bgcolor="#f8d1d1",
                                   foreground_color="#FF3D3D",
-                                  hover_color="#ff9595",
+                                  hover_color="#f89f9f",
                                   on_click=adicionar_nota
                                   )
     
@@ -60,10 +60,17 @@ def main(pagina:ft.Page):
                                        alignment="center"
                                        )
 
+    container_resultado = ft.Container(content=linha_resultado,
+                                       bgcolor= "#ffdfdf",
+                                       padding=30,
+                                       border=ft.Border.all(1,color="#ffffff"))
+
+    
+
     pagina.controls = [titulo,
                        botao,
                        coluna_notas,
-                       linha_resultado
+                       container_resultado
                        ]
 
     pagina.update()
