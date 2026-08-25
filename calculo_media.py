@@ -12,8 +12,6 @@ def main(pagina:ft.Page):
                      color= "#924A10")
     
     lista_notas = []
-
-
     
     def adicionar_nota():
         lista_notas.append(Campo_nota())
