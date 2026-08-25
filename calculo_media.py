@@ -15,6 +15,12 @@ def main(pagina:ft.Page):
     
     def adicionar_nota():
         lista_notas.append(Campo_nota())
+
+    def apagar_nota():
+        copia_lista = lista_notas.copy()
+        for campo in copia_lista:
+            if campo.caixa_selecao.value == True:
+                lista_notas.remove(campo)
         
     def calcular_media():
         soma_notas = 0
@@ -27,13 +33,23 @@ def main(pagina:ft.Page):
 
             campo_resultado.value = soma_notas / contador_notas
     
-    botao = ft.FloatingActionButton(icon = ft.Icon(icon=ft.CupertinoIcons.ADD_CIRCLED,
+    botao_adicionar = ft.FloatingActionButton(icon = ft.Icon(icon=ft.CupertinoIcons.ADD_CIRCLED,
                                                    color="#A73763"),
                                   bgcolor="#f8d1d1",
                                   foreground_color="#FF3D3D",
                                   hover_color="#f89f9f",
                                   on_click=adicionar_nota
                                   )
+
+    botao_excluir = ft.FloatingActionButton(icon=ft.Icon(icon=ft.Icons.AUTO_DELETE_OUTLINED,
+                                                         color="#A73763"),
+                                            bgcolor="#f8d1d1",
+                                            hover_color="#f89f9f",
+                                            on_click=apagar_nota)
+
+    linha_botoes = ft.Row(controls=[botao_adicionar,
+                                    botao_excluir],
+                                    alignment="center")
     
     coluna_notas = ft.Column(controls=lista_notas,
                              expand=True,
@@ -66,7 +82,7 @@ def main(pagina:ft.Page):
     
 
     pagina.controls = [titulo,
-                       botao,
+                       linha_botoes,
                        coluna_notas,
                        container_resultado
                        ]
