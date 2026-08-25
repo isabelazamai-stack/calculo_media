@@ -1,4 +1,5 @@
 import flet as ft
+from component.classe_campo_nota import Campo_nota
 
 def main(pagina:ft.Page):
     pagina.title = "Calculadora de Média"
@@ -11,12 +12,11 @@ def main(pagina:ft.Page):
                      color= "#924A10")
     
     lista_notas = []
+
+
     
     def adicionar_nota():
-        lista_notas.append(ft.TextField(label="NOTA",
-                                        filled=True,
-                                        bgcolor="#f7d5d5",
-                                        border_color="#ffffff"))
+        lista_notas.append(Campo_nota())
         
     def calcular_media():
         soma_notas = 0
